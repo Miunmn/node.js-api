@@ -15,8 +15,6 @@ const Dashboard = ({selectedRepo}) => {
   const [branch, setBranch] = useState(selectedRepo.default_branch);
   const [branches, setBranches] = useState([]);
 
-  console.log(selectedRepo)
-
   const handleChange = (event) => {
     setBranch(event.target.value);
   };

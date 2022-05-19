@@ -20,7 +20,7 @@ export default function Home() {
 
     axios.get(`api/getRepoInfo?repoName=${selectedRepoName}`)
     .then(response=>{
-      setSelectedRepo(response)
+      setSelectedRepo(response.data)
     })
     .catch(error=>{
       console.log(error)

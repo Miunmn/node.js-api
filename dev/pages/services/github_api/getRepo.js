@@ -6,9 +6,8 @@ async function getRepo(repoName){
   return new Promise( function (resolve, reject) {
      axios.get(`https://api.github.com/users/Miunmn/repos`, auth_header)
      .then((response) =>{
-      let repo = response.data.filter(repo => repo.name === repoName)
+      let repo = response.data.filter(repo => repo.name === repoName)[0]
       repoInformation = {...repoInformation, ...repo};
-      console.log(`https://api.github.com/repos/Miunmn/${repoName}/branches`)
       axios.get(`https://api.github.com/repos/Miunmn/${repoName}/branches`, auth_header)
       .then((response) =>{
         repoInformation = {...repoInformation, ...response.data};
