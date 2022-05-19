@@ -8,6 +8,7 @@ async function getUser(){
       return resolve(response.data);
      })
      .catch((err) => {
+       console.log(err)
        let error = new Error('Error while fetching user')
        return reject(error);
      });
