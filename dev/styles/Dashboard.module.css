@@ -12,5 +12,19 @@
   border-radius: 5px;
   border: 2px solid #57606A;
   color: #cdd9e5;
+  padding: 1rem;
+  min-width: 60%;
+  max-width: 70%;
 }
 
+.repository-info a{
+  color: #539bf5;
+  font-size: 1.1rem;
+
+}
+
+.repository-info a:hover{
+  color: #539bf5;
+  cursor: pointer;
+  text-decoration: underline;
+}

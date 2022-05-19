@@ -21,7 +21,7 @@ const Sidebar = ({repos, loadingRepos}) => {
                     <BiBookBookmark size={30} />
                     </Grid>
                   <Grid item xs={11}>
-                    <div onClick={(e)=>{}} className={styles['repo-name']}>{repo.name}</div>
+                    <div onClick={(e)=>{}} className={styles['repo-name']}><a>{repo.name}</a></div>
                   </Grid>
               </Grid>
               </div>

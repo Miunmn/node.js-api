@@ -6,6 +6,8 @@ import axios from 'axios';
 export default function Home() {
   const [repos, setRepos] = useState([]);
   const [loadingRepos, setLoadingRepos] = useState(true)
+  const [selectedRepo, setSelectedRepo] = useState({})
+
   useEffect(() => { 
     setLoadingRepos(false)
     axios.get('api/getUserInfo')
@@ -13,6 +15,7 @@ export default function Home() {
         console.log('res.data',res.data.repos)
         setLoadingRepos(false)
         setRepos(res.data.repos);
+        setSelectedRepo(res.data.repos[0])
       })
       .catch(err=>{
         console.log(err)
@@ -25,7 +28,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <Body repos={repos} loadingRepos={loadingRepos} />
+    <Body repos={repos} loadingRepos={loadingRepos} selectedRepo={selectedRepo}/>
     </>
 
   )

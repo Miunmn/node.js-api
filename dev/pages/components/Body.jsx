@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Dashboard from './Dashboard';
 
 
-const Body = ({repos, loadingRepos}) => {
+const Body = ({repos, loadingRepos, selectedRepo}) => {
   return (
     <div className={styles.container}>
     <Grid container spacing={1}>
@@ -12,7 +12,7 @@ const Body = ({repos, loadingRepos}) => {
         <Sidebar repos={repos} loadingRepos={loadingRepos}/>
       </Grid>
       <Grid item xs={9} className={styles.dashboard}>
-        <Dashboard />
+        <Dashboard selectedRepo={selectedRepo}/>
       </Grid>        
     </Grid>
   </div>

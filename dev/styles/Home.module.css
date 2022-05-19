@@ -20,14 +20,14 @@
   border: 1px solid #9A9C9F;
 }
 
-.repo-name{
+.repo-name a{
   color: #539bf5;
   font-size: 1.1rem;
   font-weight: 500;
   margin-left: 3px;
   margin-bottom: 1rem;
 }
-.repo-name:hover{
+.repo-name a:hover{
   color: #539bf5;
   cursor: pointer;
   text-decoration: underline;
