@@ -5,11 +5,18 @@ import axios from 'axios';
 
 export default function Home() {
   const [repos, setRepos] = useState([]);
+  const [loadingRepos, setLoadingRepos] = useState(true)
   useEffect(() => { 
+    setLoadingRepos(false)
     axios.get('api/getUserInfo')
       .then(res => {
         console.log('res.data',res.data.repos)
+        setLoadingRepos(false)
         setRepos(res.data.repos);
+      })
+      .catch(err=>{
+        console.log(err)
+        setLoadingRepos(false)
       })
     
   },[])
@@ -18,7 +25,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <Body repos={repos} />
+    <Body repos={repos} loadingRepos={loadingRepos} />
     </>
 
   )

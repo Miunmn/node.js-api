@@ -1,9 +1,10 @@
 import {BiBookBookmark} from 'react-icons/bi'
 import styles from "../../styles/Home.module.css"
 import Grid from '@mui/material/Grid';
+import { AtomSpinner } from 'react-epic-spinners'
 
 
-const Sidebar = ({repos}) => {
+const Sidebar = ({repos, loadingRepos}) => {
   return (
     <>
       <div className={styles['sidebar-title-container']}>
@@ -11,6 +12,7 @@ const Sidebar = ({repos}) => {
         </div>
         <div className='repo-holder'>
         {
+          loadingRepos? <AtomSpinner color="red"/>:
           repos.map((repo, index) => {
             return (
               <div key={index}> 
