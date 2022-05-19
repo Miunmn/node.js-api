@@ -1,50 +1,24 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { useState, useEffect } from 'react';
 import Body from './components/Body'
 import Header from './components/Header'
-import {BiBookBookmark} from 'react-icons/bi'
-
-import Grid from '@mui/material/Grid';
-import styles from '../styles/Home.module.css'
+import axios from 'axios';
 
 export default function Home() {
-  const repos = ['REPO1REPO1REPO1REPO1', 'REPO2', 'REPO3', 'REPO4'];
+  const [repos, setRepos] = useState([]);
+  useEffect(() => { 
+    axios.get('api/getUserInfo')
+      .then(res => {
+        console.log('res.data',res.data.repos)
+        setRepos(res.data.repos);
+      })
+    
+  },[])
+
 
   return (
     <>
     <Header />
-    <div className={styles.container}>
-      <Grid container spacing={1}>
-        <Grid item xs={3} className={styles.sidebar}>
-          <div className={styles['sidebar-title-container']}>
-            <p className={styles['sidebar-title']}>Repositories</p>
-          </div>
-          <div className='repo-holder'>
-          {
-            repos.map((repo, index) => {
-              return (
-                <div key={index}> 
-                <Grid container >
-                    <Grid item xs={1}>
-                      <BiBookBookmark size={30} />
-                      </Grid>
-                    <Grid item xs={11}>
-                      <div onClick={(e)=>{}} className={styles['repo-name']}>{repo}</div>
-                    </Grid>
-                </Grid>
-                </div>
-              )
-            })
-          }
-          </div>
-        </Grid>
-        <Grid item xs={9} className={styles.dashboard}>
-            <p>
-              aa
-            </p>
-        </Grid>        
-      </Grid>
-    </div>
+    <Body repos={repos} />
     </>
 
   )
