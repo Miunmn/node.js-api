@@ -1,5 +1,37 @@
 .container {
   padding: 0 2rem;
+  background-color: #1c2128;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.sidebar p{
+  background-color: #444c56; 
+  width: auto;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  border: 1px solid #9A9C9F;
+}
+
+.sidebar p {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dashboard p {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dashboard {
+  background-color: #444c56; 
+  width: auto;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  border: 1px solid #9A9C9F;
 }
 
 .main {
