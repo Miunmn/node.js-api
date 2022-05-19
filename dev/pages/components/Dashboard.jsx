@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from '../../styles/Dashboard.module.css'
 import Grid from '@mui/material/Grid';
 
@@ -21,6 +22,25 @@ const Dashboard = ({selectedRepo}) => {
   const getDate = (dateObj) =>{
     return dateObj.toLocaleDateString()
   }
+
+  useEffect(()=>{
+    console.log('useEffect', selectedRepo)
+
+    if(Object.keys(selectedRepo).length === 0){
+      return
+    }
+    console.log('useEffect', selectedRepo)
+    let sha =  selectedRepo.branches.filter(repo => repo.default_branch === branch)[0].commit.sha
+    console.log("sha", sha, "selectedRepo.name", selectedRepo.name)
+    axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}&sha=${sha}`)
+    .then(response=>{
+      setSelectedRepo(response.data)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+
+  },[selectedRepo])
 
   return (
     <>
