@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const Dashboard = ({selectedRepo}) => {
-  const [branch, setBranch] = useState(selectedRepo.default_branch);
+  const [branch, setBranch] = useState("");
   const [branches, setBranches] = useState([]);
   const [commits, setCommits] = useState([]);
 
@@ -23,22 +23,31 @@ const Dashboard = ({selectedRepo}) => {
   const getDate = (dateObj) =>{
     return dateObj.toLocaleDateString()
   }
+  useEffect(()=>{
 
+    if(!selectedRepo.branches)
+      return
+
+    setBranches(selectedRepo.branches);
+      
+
+  }, [selectedRepo] )
   useEffect(()=>{
 
     if(Object.keys(selectedRepo).length === 0){
       return
     }
-    axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}`)
+
+    axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}&branchName=${branch}`)
     .then(response=>{
-      console.log(response.data)
+      console.log('getBranchCommits', response.data)
       setCommits(response.data)
     })
     .catch(error=>{
       console.log(error)
     })
 
-  },[selectedRepo])
+  },[branch])
 
   return (
     <>
@@ -63,20 +72,23 @@ const Dashboard = ({selectedRepo}) => {
           <Grid item xs={12}>
             <div className={styles['repository-info-container']}>
             <h6 className={styles['dashboard-title']}>Branches</h6>
-            <Box >
+            <Box>
               <FormControl>
                 <InputLabel id="demo-simple-select-label">Branch</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={branch}
+                  style={{minWidth: '200px'}}
                   defaultValue={selectedRepo.default_branch}
                   label="Branch"
                   onChange={handleChange}
                 >
-                  <MenuItem value={'main'}>main</MenuItem>
-                  {/* <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem> */}
+                  {
+                    branches.map((branch, index)=>{
+                      return <MenuItem key={index} value={branch.name}>{branch.name}</MenuItem>
+                    })
+                  }
                 </Select>
               </FormControl>
             </Box>
