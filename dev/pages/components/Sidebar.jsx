@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { AtomSpinner } from 'react-epic-spinners'
 
 
-const Sidebar = ({repos, loadingRepos}) => {
+const Sidebar = ({repos, loadingRepos, handleSelectedRepo}) => {
   return (
     <>
       <div className={styles['sidebar-title-container']}>
@@ -21,7 +21,7 @@ const Sidebar = ({repos, loadingRepos}) => {
                     <BiBookBookmark size={30} />
                     </Grid>
                   <Grid item xs={11}>
-                    <div onClick={(e)=>{}} className={styles['repo-name']}><a>{repo.name}</a></div>
+                    <div onClick={(e)=>{handleSelectedRepo(e)}} className={styles['repo-name']}><a>{repo.name}</a></div>
                   </Grid>
               </Grid>
               </div>

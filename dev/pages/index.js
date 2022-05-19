@@ -7,7 +7,27 @@ export default function Home() {
   const [repos, setRepos] = useState([]);
   const [loadingRepos, setLoadingRepos] = useState(true)
   const [selectedRepo, setSelectedRepo] = useState({})
+  const [selectedRepoName, setSelectedRepoName] = useState('')
 
+  const handleSelectedRepo = (e) => {
+    setSelectedRepoName(e.target.innerText)
+  }
+
+  useEffect(()=>{
+    if(selectedRepoName === ""){
+      return 
+    }
+
+    axios.get(`api/getRepoInfo?repoName=${selectedRepoName}`)
+    .then(response=>{
+      setSelectedRepo(response)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+
+  },[selectedRepoName])
+  
   useEffect(() => { 
     setLoadingRepos(false)
     axios.get('api/getUserInfo')
@@ -15,7 +35,7 @@ export default function Home() {
         console.log('res.data',res.data.repos)
         setLoadingRepos(false)
         setRepos(res.data.repos);
-        setSelectedRepo(res.data.repos[0])
+        setSelectedRepoName(res.data.repos[0].name)
       })
       .catch(err=>{
         console.log(err)
@@ -28,7 +48,7 @@ export default function Home() {
   return (
     <>
     <Header />
-    <Body repos={repos} loadingRepos={loadingRepos} selectedRepo={selectedRepo}/>
+    <Body handleSelectedRepo={handleSelectedRepo} selectedRepo={selectedRepo} repos={repos} loadingRepos={loadingRepos} />
     </>
 
   )

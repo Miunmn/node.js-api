@@ -49,7 +49,7 @@ const Dashboard = ({selectedRepo}) => {
             <h6 className={styles['dashboard-title']}>Branches</h6>
             <Box >
               <FormControl>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                <InputLabel id="demo-simple-select-label">Branch</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
