@@ -1,0 +1,28 @@
+.header{
+  background-color: #2d333b;
+}
+.title{
+  color: #cdd9e5;
+  margin-top: 5px;
+}
+.logo-title{
+  width: 90%;
+}
+
+.input-holder{
+  width: 100%;
+  margin-top: 1%;
+  position: relative;
+}
+
+.input-header{
+  height: 35px;
+  width: 100%;
+  font-size: 15px;
+  padding-left:0.8em ;
+  background: none;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  border: 1px solid #57606A;
+}
