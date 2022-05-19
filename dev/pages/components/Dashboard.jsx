@@ -15,6 +15,7 @@ import Select from '@mui/material/Select';
 const Dashboard = ({selectedRepo}) => {
   const [branch, setBranch] = useState(selectedRepo.default_branch);
   const [branches, setBranches] = useState([]);
+  const [commits, setCommits] = useState([]);
 
   const handleChange = (event) => {
     setBranch(event.target.value);
@@ -24,17 +25,14 @@ const Dashboard = ({selectedRepo}) => {
   }
 
   useEffect(()=>{
-    console.log('useEffect', selectedRepo)
 
     if(Object.keys(selectedRepo).length === 0){
       return
     }
-    console.log('useEffect', selectedRepo)
-    let sha =  selectedRepo.branches.filter(repo => repo.default_branch === branch)[0].commit.sha
-    console.log("sha", sha, "selectedRepo.name", selectedRepo.name)
-    axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}&sha=${sha}`)
+    axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}`)
     .then(response=>{
-      setSelectedRepo(response.data)
+      console.log(response.data)
+      setCommits(response.data)
     })
     .catch(error=>{
       console.log(error)
