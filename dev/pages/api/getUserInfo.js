@@ -4,7 +4,7 @@ import getUser from '../services/github_api/getUser';
 import getRepos from "../services/github_api/getRepos";
 import getBranches from "../services/github_api/getBranches";
 
-export default async function getCompleteInfo(req, res) {
+export default async function getUserInfo(req, res) {
   let userInfo = {};
   try{
     const user = await getUser();
