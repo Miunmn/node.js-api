@@ -1,8 +1,5 @@
-import axios from 'axios'; 
-import auth_header from './auth';
 import getUser from '../services/github_api/getUser';
 import getRepos from "../services/github_api/getRepos";
-import getBranches from "../services/github_api/getBranches";
 
 export default async function getUserInfo(req, res) {
   let userInfo = {};
