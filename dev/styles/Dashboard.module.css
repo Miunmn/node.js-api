@@ -22,9 +22,31 @@
   font-size: 1.1rem;
 
 }
+.repository-info-container{
+  overflow: auto;
 
+}
+
+.repository-info-sub-headings{
+  color: #cdd9e5;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+.repository-info span:hover{
+  color: #539bf5;
+  cursor: pointer;
+  text-decoration: underline;
+
+}
 .repository-info a:hover{
   color: #539bf5;
   cursor: pointer;
   text-decoration: underline;
 }
+
+.repository-dates{
+  color: #cdd9e5;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
