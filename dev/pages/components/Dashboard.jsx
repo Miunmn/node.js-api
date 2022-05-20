@@ -92,6 +92,20 @@ const Dashboard = ({selectedRepo}) => {
                 </Select>
               </FormControl>
             </Box>
+            <div className={styles['commit-container']}>
+              {
+                commits.length === 0 ? <></>:
+                commits.map((item, index) => {
+                  return (
+                    <div className={styles['commit-item']} key={index}> 
+                      <div className={styles['commit-item-headings']}>{item.commit.message}</div>
+
+                    </div>
+                  )})
+
+              }
+
+            </div>
             </div>
           </Grid>
         </Grid>

@@ -50,3 +50,16 @@
   font-style: italic;
 }
 
+.commit-item-headings{
+  font-size: 1rem;
+  color: #539bf5;
+}
+
+.commit-item{
+  width: 30%;
+  height: auto;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #57606A;
+  border-radius: 5px;
+}
