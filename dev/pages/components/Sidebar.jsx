@@ -15,15 +15,22 @@ const Sidebar = ({repos, loadingRepos, handleSelectedRepo}) => {
           loadingRepos? <AtomSpinner color="red"/>:
           repos.map((repo, index) => {
             return (
-              <div key={index}> 
-              <Grid container >
+              <div key={index} className={styles['repo-item']}> 
+              <div className={styles['repo-icon']}>
+                <BiBookBookmark />
+              </div>
+              <div className={styles['repo-name']}>
+                <a onClick={handleSelectedRepo}>{repo.name}</a>
+              </div>
+              
+              {/* <Grid container >
                   <Grid item xs={1}>
                     <BiBookBookmark size={30} />
                     </Grid>
                   <Grid item xs={11}>
                     <div onClick={(e)=>{handleSelectedRepo(e)}} className={styles['repo-name']}><a>{repo.name}</a></div>
                   </Grid>
-              </Grid>
+              </Grid> */}
               </div>
             )
           })

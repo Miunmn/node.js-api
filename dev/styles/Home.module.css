@@ -8,6 +8,19 @@
   max-height: 60vh;
   overflow: auto;
 }
+.repo-icon{
+  display: flex;
+  align-items: center;
+}
+
+
+.repo-item{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  user-select: none;
+}
 
 .sidebar-title{
   color: #cdd9e5;
@@ -25,12 +38,22 @@
   border: 1px solid #9A9C9F;
 }
 
+@media screen and (max-width: 768px){
+  .sidebar{
+    margin-bottom: 2rem;
+  }
+} 
+
+
 .repo-name a{
   color: #539bf5;
   font-size: 1.1rem;
   font-weight: 500;
   margin-left: 3px;
   margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .repo-name a:hover{
   color: #539bf5;

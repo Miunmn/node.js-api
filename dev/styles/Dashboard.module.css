@@ -1,6 +1,7 @@
 
 .dashboard-title{
   color: #cdd9e5;
+  margin-bottom: 0.5rem;
  
 }
 
@@ -65,6 +66,9 @@
 .commit-item-headings{
   font-size: 1rem;
   color: #539bf5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .commit-item-headings:hover{
@@ -74,9 +78,9 @@
 }
 
 .commit-item{
-  width: 30%;
+  width: 90%;
   height: auto;
-  padding: 2rem;
+  padding: 0.3rem 1rem 1rem 1rem ;
   margin-bottom: 1.5rem;
   border: 2px solid #57606A;
   border-radius: 5px;

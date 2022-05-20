@@ -24,23 +24,23 @@ const Dashboard = ({selectedRepo}) => {
     return dateObj.toLocaleDateString()
   }
   useEffect(()=>{
-
+    console.log('selectedRepoDetected')
     if(!selectedRepo.branches)
       return
-
+    setCommits([])
+    setBranch("")
     setBranches(selectedRepo.branches);
       
 
   }, [selectedRepo] )
   useEffect(()=>{
 
-    if(Object.keys(selectedRepo).length === 0){
+    if(Object.keys(selectedRepo).length === 0 || branch === ""){
       return
     }
 
     axios.get(`api/getBranchCommits?repoName=${selectedRepo.name}&branchName=${branch}`)
     .then(response=>{
-      console.log('getBranchCommits', response.data)
       setCommits(response.data)
     })
     .catch(error=>{
@@ -61,7 +61,7 @@ const Dashboard = ({selectedRepo}) => {
             <div className={styles['repository-info-container']}>
               <h6 className={styles['dashboard-title']}>Selected Repository</h6>
               <div className={styles['repository-info']}> 
-                <div><a>{selectedRepo.name}</a></div>
+                <div><a href={selectedRepo.html_url} target="_blank">{selectedRepo.name}</a></div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.owner?selectedRepo.owner.login:''}</div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.description?selectedRepo.description:''}</div>  
                 <div className={styles['repository-dates']}>Creation date: {selectedRepo.created_at?getDate(new Date(selectedRepo.created_at)):''}</div> 
@@ -103,6 +103,9 @@ const Dashboard = ({selectedRepo}) => {
                       </a>
                       <div className={styles['commit-item-author']}>
                         {item.author.login}
+                      </div>
+                      <div className={styles['commit-item-author']}>
+                        {getDate(new Date(item.commit.author.date))}
                       </div>
                     </div>
                   )})
