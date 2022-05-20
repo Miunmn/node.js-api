@@ -10,7 +10,7 @@ const Sidebar = ({repos, loadingRepos, handleSelectedRepo}) => {
       <div className={styles['sidebar-title-container']}>
           <p className={styles['sidebar-title']}>Repositories</p>
         </div>
-        <div className='repo-holder'>
+        <div className={styles['repo-holder']}>
         {
           loadingRepos? <AtomSpinner color="red"/>:
           repos.map((repo, index) => {

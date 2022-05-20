@@ -15,7 +15,7 @@ const Body = ({repos, loadingRepos, selectedRepo, handleSelectedRepo}) => {
   return (<>
     {
       loading? <AtomSpinner color="red"/>:
-           <div className={styles.container}>
+      <div className={styles.container}>
         <Grid container spacing={1}>
           <Grid item xs={3} className={styles.sidebar}>
             <Sidebar repos={repos} handleSelectedRepo={handleSelectedRepo} loadingRepos={loadingRepos}/>

@@ -6,6 +6,9 @@
 
 .dashboard-container{
   margin-left: 1%;
+  max-height: 80vh;
+  overflow: auto;
+
 }
 
 .repository-info{
@@ -50,9 +53,24 @@
   font-style: italic;
 }
 
+.commit-container{
+  margin-top: 1.5rem;
+}
+
+.commit-item-author{
+  color: #cdd9e5;
+  font-size: 15px;
+}
+
 .commit-item-headings{
   font-size: 1rem;
   color: #539bf5;
+}
+
+.commit-item-headings:hover{
+  color: #539bf5;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .commit-item{

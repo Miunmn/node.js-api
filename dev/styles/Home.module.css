@@ -1,9 +1,14 @@
 .container {
   padding: 2rem;
   background-color: #22272e;
-  min-height: 100vh;
+  min-height: 93vh;
   width: 100vw;
 }
+.repo-holder{
+  max-height: 60vh;
+  overflow: auto;
+}
+
 .sidebar-title{
   color: #cdd9e5;
 }

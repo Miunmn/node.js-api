@@ -98,13 +98,15 @@ const Dashboard = ({selectedRepo}) => {
                 commits.map((item, index) => {
                   return (
                     <div className={styles['commit-item']} key={index}> 
-                      <div className={styles['commit-item-headings']}>{item.commit.message}</div>
-
+                      <a className={styles['commit-item-headings']} href={item.html_url} target="_blank">
+                        {item.commit.message}
+                      </a>
+                      <div className={styles['commit-item-author']}>
+                        {item.author.login}
+                      </div>
                     </div>
                   )})
-
               }
-
             </div>
             </div>
           </Grid>
