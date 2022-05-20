@@ -98,7 +98,7 @@ const Dashboard = ({selectedRepo}) => {
                 commits.map((item, index) => {
                   return (
                     <div className={styles['commit-item']} key={index}> 
-                      <a className={styles['commit-item-headings']} href={item.html_url} target="_blank">
+                      <a className={styles['commit-item-headings']} href={item.html_url} rel="noreferrer" target="_blank">
                         {item.commit.message}
                       </a>
                       <div className={styles['commit-item-author']}>
