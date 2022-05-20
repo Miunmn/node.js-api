@@ -61,7 +61,7 @@ const Dashboard = ({selectedRepo}) => {
             <div className={styles['repository-info-container']}>
               <h6 className={styles['dashboard-title']}>Selected Repository</h6>
               <div className={styles['repository-info']}> 
-                <div><a href={selectedRepo.html_url} target="_blank">{selectedRepo.name}</a></div>
+                <div><a href={selectedRepo.html_url} rel="noreferrer" target="_blank">{selectedRepo.name}</a></div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.owner?selectedRepo.owner.login:''}</div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.description?selectedRepo.description:''}</div>  
                 <div className={styles['repository-dates']}>Creation date: {selectedRepo.created_at?getDate(new Date(selectedRepo.created_at)):''}</div> 
