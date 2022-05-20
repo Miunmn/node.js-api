@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://fulltime-force-test-client.netlify.app">
+  <a href="">
     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Logo" width="80" height="80">
   </a>
 
