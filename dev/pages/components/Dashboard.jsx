@@ -61,7 +61,9 @@ const Dashboard = ({selectedRepo}) => {
             <div className={styles['repository-info-container']}>
               <h6 className={styles['dashboard-title']}>Selected Repository</h6>
               <div className={styles['repository-info']}> 
-                <div><a href={selectedRepo.html_url} rel="noreferrer" target="_blank">{selectedRepo.name}</a></div>
+                <div><a onClick={()=>{
+                  window.open(`${selectedRepo.html_url}`, '_blank')
+                }}  >{selectedRepo.name}</a></div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.owner?selectedRepo.owner.login:''}</div>
                 <div className={styles['repository-info-sub-headings']}>{selectedRepo.description?selectedRepo.description:''}</div>  
                 <div className={styles['repository-dates']}>Creation date: {selectedRepo.created_at?getDate(new Date(selectedRepo.created_at)):''}</div> 
@@ -98,7 +100,10 @@ const Dashboard = ({selectedRepo}) => {
                 commits.map((item, index) => {
                   return (
                     <div className={styles['commit-item']} key={index}> 
-                      <a className={styles['commit-item-headings']} href={item.html_url} rel="noreferrer" target="_blank">
+                      <a className={styles['commit-item-headings']} 
+                      onClick={()=>{
+                        window.open(`${item.html_url}`, '_blank')
+                      }}  >
                         {item.commit.message}
                       </a>
                       <div className={styles['commit-item-author']}>
