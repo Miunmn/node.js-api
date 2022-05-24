@@ -1,43 +1,38 @@
 # Node.js API + React: Commit Viewer
 
 
-## Compilación
-Para ejecutar este proyecto primero necesitamos instalar Node.js
+## Compile
+In order to run this project we first need to have Node.js installed
 [node.js](https://nodejs.org/es/download/)
 
-Instalar npm 
+Also install NPM to be able to download project dependencies
 ``` bash
 npm install -g npm
 ```
+We need to install [Git](https://git-scm.com) to clone the repository and generate a   [Github Token](https://docs.github.com/es/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) from your [Github](https://github.com) account.
 
-Tener instalado git [Git](https://git-scm.com)
-
-Tener una token de Github, que para eso se necesita una cuenta de Github 
-[Github](https://github.com) y el ACCESS_TOKEN [obtener token](https://docs.github.com/es/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-
-Clonar repositorio 
+Once we've installed Git, we can clone the repository
 ``` bash
 git clone https://github.com/Miunmn/node.js-api.git
 ```
-Entrar al repositorio y al directorio dev
+Enter dev folder inside the repository
 
 ``` bash
 cd node.js-api/dev
 ```
 
-Crear un .env file donde se guarde el access token de Github
+Create an .env file where we specify the GITHUB_TOKEN
 ``` bash
 GITHUB_TOKEN="<token>"
 
 ```
-Instalar dependencias 
+Let's install  the project dependencies 
 ``` bash
 npm install
 ```
 
-Ejecutar el proyecto
+Run the project
 
 ```bash
 npm run dev
 ```
-
